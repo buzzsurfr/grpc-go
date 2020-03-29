@@ -21,6 +21,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"os"
 	"time"
@@ -36,7 +37,7 @@ const (
 var address = "localhost:50051"
 
 func init() {
-	if ep, ok := os.LookupEnv("GREETER_ENDPOINT"), ok {
+	if ep, ok := os.LookupEnv("GREETER_ENDPOINT"); ok {
 		address = ep
 	}
 }
