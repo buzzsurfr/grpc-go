@@ -30,9 +30,16 @@ import (
 )
 
 const (
-	address     = "greeter_server:50051"
 	defaultName = "world"
 )
+
+var address = "localhost:50051"
+
+func init() {
+	if ep, ok := os.LookupEnv("GREETER_ENDPOINT"), ok {
+		address = ep
+	}
+}
 
 func main() {
 	// Set up a connection to the server.
